@@ -16,27 +16,31 @@ function JsonData() {
     const handleChange= (e) => {
         e.preventDefault()
         let value = e.target.value
-        console.log(value)   
-        try {
-            let JasonData =(JSON.parse(value)).payload;
-            console.log(JasonData)
-            let filterData = JasonData.filter(item => {
-            return item.drm && item.episodeCount >0
-            }) 
-            
-            setData(filterData)
-            
-            setErrorstate(false)     
-        } catch(e) {
-            let errormsg = {   
-                    "error": "Could not decode request: JSON parsing failed",
-                    "code": 400,
-                    "message": "Bad Request"
+        if(value) {
+            try {
+                let JasonData =(JSON.parse(value)).payload;
+                console.log(JasonData)
+                let filterData = JasonData.filter(item => {
+                return item.drm && item.episodeCount >0
+                }) 
+                
+                setData(filterData)
+                
+                setErrorstate(false)     
+            } catch(e) {
+                let errormsg = {   
+                        "error": "Could not decode request: JSON parsing failed",
+                        "code": 400,
+                        "message": "Bad Request"
+                }
+                setErrorstate(true)
+                let string = JSON.stringify(errormsg,null,"\t")
+                setErrorstring(string)
             }
-            setErrorstate(true)
-            let string = JSON.stringify(errormsg,null,"\t")
-            setErrorstring(string)
-        } 
+        } else {
+            setErrorstate(false)
+        }            
+    
         
     }
 
