@@ -4,5 +4,24 @@
   padding: 10px;
   display: flex;
 }
+.listgroupitem {
+  display: flex;
+}
+.h5 {
+  display: flex;
+  padding: 10px;
+}
+
+.div {
+  max-width: 960px;
+  margin: auto;
+}
+
+.ul {
+  padding: 10px;
+  text-align: left;
+}
+
+
 
 

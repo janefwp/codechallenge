@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { Form, Button, Alert} from 'react-bootstrap'
+import { Form, Button, Alert, Navbar, Container,Row, Col, ListGroup} from 'react-bootstrap'
 
 
 function JsonData() {
@@ -70,16 +70,21 @@ function JsonData() {
 
 
     return (
-        <div>
-            
-            <h1 >JSON Data Filter</h1>
-            <p>How to use:</p>
-            <div >
-                <li >Step1: Copy JSON data to "Input JSON data"</li>
-                <li >Step2: Click filter button</li>
-                <li>Step3: Get the result from the "JSON data output"</li>
-            </div>            
-       
+        <div className='div'>
+            <header>
+            <Navbar bg="dark" variant="dark">
+                <Navbar.Brand href="#home">
+                    JSON Data Filter
+                </Navbar.Brand>
+            </Navbar>
+            </header>
+            <h5 className='h5'>How to use:</h5>
+                <ul className='ul'>
+                <li >Step1: Paste JSON data into "Input JSON data"</li>
+                <li >Step2: Click Filter button</li>
+                <li >Step3: Get the result from the "JSON data output"</li>
+                </ul>
+
             <Form>
                 <Form.Group controlId="OldJSON">
                     <Form.Label className='formLabel'>Input JSON data</Form.Label>
@@ -92,7 +97,8 @@ function JsonData() {
 
                 <Form.Group controlId="NewJSON">
                     <Form.Label className='formLabel'>JSON data output</Form.Label>
-                    <Form.Control 
+                    <Form.Control
+                        className='formcontrol' 
                         as="textarea" 
                         rows={10} 
                         cols={10}
@@ -103,9 +109,16 @@ function JsonData() {
         
                 </Form.Group>
                 
-      
-                
         </Form>     
+
+        <footer>
+            <Container>
+                <Row>
+                    <Col className ="text-center py-3"> Copyright &copy; Jing
+                    </Col>
+                </Row>
+            </Container>
+        </footer>
 
         </div>
         
